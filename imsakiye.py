@@ -4,7 +4,7 @@ import streamlit as st
 import pytz
 
 def imsakiye(sehir,ilce):
-  ramazan = pd.read_html(f'https://www.haberturk.com/ramazan/imsakiye/{sehir}/{ilce}',flavor = 'bs4')[0]
+  ramazan = pd.read_html(f'https://www.haberturk.com/ramazan/imsakiye/{sehir}/{ilce}',flavor = 'html5lib')[0]
   ramazan['Tarih'] = pd.to_datetime(ramazan['Tarih'])
   return ramazan
 
