@@ -1,3 +1,4 @@
+
 import pandas as pd
 from datetime import datetime
 import streamlit as st 
@@ -263,12 +264,18 @@ for il, ilceler in sehirler.items():
 for i in ingilizce_sehirler:
   for a in range(len(ingilizce_sehirler[i])):
     ingilizce_sehirler[i][a] = ingilizce_sehirler[i][a].lower()
-    
+
+#--------------------    
+yeni_sehirler = {}
+for anahtar, deger in ingilizce_sehirler.items():
+    yeni_anahtar = anahtar.lower()  # Anahtarı küçük harfe dönüştür
+    yeni_sehirler[yeni_anahtar] = deger
+
+# -----------------------------
 
 
-
-sehirsec = st.sidebar.selectbox('Sehir Sec', ingilizce_sehirler.keys())
-ilcesec = st.sidebar.selectbox('Ilce Sec',ingilizce_sehirler[sehirsec])
+sehirsec = st.sidebar.selectbox('Sehir Sec', yeni_sehirler.keys())
+ilcesec = st.sidebar.selectbox('Ilce Sec',yeni_sehirler[sehirsec])
 
 st.subheader('Bugun')
 st.table(Bugun(sehirsec,ilcesec))
@@ -276,35 +283,3 @@ st.table(Bugun(sehirsec,ilcesec))
 
 st.subheader('Imsakiye')
 st.table(imsakiye(sehirsec,ilcesec))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
