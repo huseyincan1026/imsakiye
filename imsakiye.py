@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime
 import streamlit as st 
 import pytz
-
+pip install html5lib
 def imsakiye(sehir,ilce):
   ramazan = pd.read_html(f'https://www.haberturk.com/ramazan/imsakiye/{sehir}/{ilce}',flavor = 'bs4')[0]
   ramazan['Tarih'] = pd.to_datetime(ramazan['Tarih'])
